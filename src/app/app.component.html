@@ -3,11 +3,14 @@
     <div class="col-sm-12 col-md-12">
       <form #postCreationForm="ngForm">
         <label for="postTitle">Title</label>
-        <input type="text" name="postTitle" #postTitle="ngModel" [(ngModel)]="postModel.title" placeholder="Please enter title">
+        <input type="text" name="postTitle" #postTitle="ngModel" required [(ngModel)]="postModel.title" placeholder="Please enter title">
+        <div class="alert alert-danger" *ngIf="postTitle.touched && postTitle.invalid">
+          <div *ngIf="postTitle.errors.required"> This field cannot be empty</div>
+        </div>
         <label for="postDescription">Description</label>
         <textarea class="desc-filed" name="postDescription" #postDescription="ngModel"  [(ngModel)]="postModel.description" id="" cols="30" rows="10" placeholder="Please enter description"></textarea>
-        <input type="button" value="create" *ngIf="isCreate" (click)="createPostDetails(postCreationForm.value)">
-        <input type="button" value="Edit" *ngIf="!isCreate" (click)="onEditAction(postCreationForm.value,postModel.id)">
+        <input [disabled]="postCreationForm.invalid" type="button" value="create" *ngIf="isCreate" (click)="createPostDetails(postCreationForm.value)">
+        <input [disabled]="postCreationForm.invalid" type="button" value="Edit" *ngIf="!isCreate" (click)="onEditAction(postCreationForm.value,postModel.id)">
       </form>
     </div>
   </div>

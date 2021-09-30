@@ -1,0 +1,20 @@
+.main-container{
+    background-color: rgb(145, 180, 180);
+}
+.form-container{
+    margin-left:30% ;
+    margin-right:30%;
+}
+.table-container{
+    margin-left:30%;
+    margin-right:30%;
+}
+.desc-filed{
+    height: 20px;
+}
+.button-edit{
+    cursor: pointer;
+}
+.button-delete{
+    cursor: pointer;
+}
